@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import AuthLayout from "./components/auth/layout";
 import AuthLogin from "./paged/auth/login";
 import AuthRegister from "./paged/auth/register";
-import AdminLayout from "./components/admin-view/adminlayout";
+import AdminLayout from "./components/admin-view/adminLayout";
 import AdminDashboard from "./paged/admin-view/dashboard";
 import AdminProducts from "./paged/admin-view/product";
 import AdminOrders from "./paged/admin-view/orders";
