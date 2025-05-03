@@ -7,7 +7,7 @@ import {
   DialogTitle,
 } from "../ui/dialog";
 import { Button } from "../ui/button";
-import { ShoppingBag, StarIcon } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { Separator } from "../ui/separator";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,7 +16,6 @@ import { toast } from "sonner";
 import { setProductDetails } from "@/store/shop/product-slice";
 import StarRatingComponent from "../common-/star-rating";
 import { Label } from "../ui/label";
-import { Input } from "../ui/input";
 import { useEffect, useState } from "react";
 import { addReview, getReviews } from "@/store/shop/review-slice";
 
@@ -42,11 +41,13 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
         reviewValue: rating,
       })
     ).then((data) => {
-      if (data.payload.success) {
+      if (data.payload?.success) {
         setRating(0);
         setReviewMsg("");
         dispatch(getReviews(productDetails?._id));
         toast.message("Review added successfully!");
+      } else {
+        toast.error("You need to purchase this product to review it.");
       }
     });
   }

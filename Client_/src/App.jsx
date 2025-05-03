@@ -45,9 +45,15 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Routes>
-        <Route path="/" element={<ShopingLayout />}>
-          <Route path="/" element={<ShopingHome />} />
-        </Route>
+      <Route
+          path="/"
+          element={
+            <CheckAuth
+              isAuthenticated={isAuthenticated}
+              user={user}
+            ></CheckAuth>
+          }
+        />
         // Authentication pages
         <Route
           path="/auth"
