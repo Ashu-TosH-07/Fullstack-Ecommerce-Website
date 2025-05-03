@@ -26,7 +26,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { logoutUser } from "@/store/auth-slice";
+import { logoutUser, resetTokenAndCredentials } from "@/store/auth-slice";
 import UserCartWrapper from "./cart-wrapper";
 import { useEffect, useState } from "react";
 import { fetchCartItem } from "@/store/shop/cart-slice";
@@ -82,7 +82,10 @@ function HeaderRightContent() {
   const [openCartSheet, setOpenCartSheet] = useState(false);
 
   function handleLogout() {
-    dispatch(logoutUser());
+    // dispatch(logoutUser());
+    dispatch(resetTokenAndCredentials());
+    sessionStorage.clear();
+    navigate("/auth/login"); 
   }
 
   useEffect(() => {
