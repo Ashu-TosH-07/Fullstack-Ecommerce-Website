@@ -35,7 +35,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const token = JSON.parse(sessionStorage.getItem("token" || "null"));
+    const tokenRaw = sessionStorage.getItem("token");
+    const token = tokenRaw && tokenRaw !== "undefined" ? JSON.parse(tokenRaw) : null;
     dispatch(checkAuth(token));
   }, [dispatch]);
 

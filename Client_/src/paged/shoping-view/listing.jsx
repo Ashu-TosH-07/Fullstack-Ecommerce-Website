@@ -64,17 +64,16 @@ function ShopingListing() {
   // }, [dispatch]);
 
   useEffect(() => {
-    const savedSort = sessionStorage.getItem("sort") || "price-lowtohigh";
-    setSort(savedSort);
-
     const category = searchParams.get("category");
+    const filtersRaw = sessionStorage.getItem("filters");
+    const parsedFilters =
+      filtersRaw && filtersRaw !== "undefined" ? JSON.parse(filtersRaw) : null;
+  
     const filterObj =
-      category !== null
-        ? { Category: [category] }
-        : JSON.parse(sessionStorage.getItem("filters") || "null") || {};
-
+      category !== null ? { Category: [category] } : parsedFilters || {};
+  
     setFilters(filterObj);
-
+  
     dispatch(
       fetchFilteredProduct({
         filterParams: filterObj,
