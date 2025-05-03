@@ -4,11 +4,14 @@ import axios from "axios";
 export const addToCart = createAsyncThunk(
   "cart/addTocart",
   async ({ userId, productId, quantity }) => {
-    const result = await axios.post(`${import.meta.env.VITE_API_URL}/api/shop/cart/add`, {
-      userId,
-      productId,
-      quantity,
-    });
+    const result = await axios.post(
+      `${import.meta.env.VITE_API_URL}/api/shop/cart/add`,
+      {
+        userId,
+        productId,
+        quantity,
+      }
+    );
     return result.data;
   }
 );
@@ -27,7 +30,9 @@ export const deleteCartItem = createAsyncThunk(
   "cart/deleteCartItem",
   async ({ userId, productId }) => {
     const result = await axios.delete(
-      `${import.meta.env.VITE_API_URL}/api/shop/cart/delete/${userId}/${productId}`
+      `${
+        import.meta.env.VITE_API_URL
+      }/api/shop/cart/delete/${userId}/${productId}`
     );
     return result.data;
   }

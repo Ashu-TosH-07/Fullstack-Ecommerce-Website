@@ -10,7 +10,6 @@ function ShopingLayout() {
         <Outlet />
       </main>
     </div>
-    
   );
 }
 

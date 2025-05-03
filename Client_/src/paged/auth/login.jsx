@@ -14,19 +14,17 @@ const initialState = {
 
 function AuthLogin() {
   const [formData, setFormData] = useState(initialState);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginUser(formData)).then(data => {
+    dispatch(loginUser(formData)).then((data) => {
       if (data?.payload?.success) {
         toast.success(data?.payload?.message || "Logged in Successfully");
       } else {
         toast.error(data?.payload?.message || "Some error occurred");
       }
-      
-    })
-
+    });
   };
 
   return (
@@ -35,18 +33,17 @@ function AuthLogin() {
         <h1 className="text-3xl font-bold tracking-tight text-foreground">
           Login to your account
         </h1>
-        
       </div>
       <CommonForm
         formControl={loginForm}
-        submitText={"Log in"} 
+        submitText={"Log in"}
         formData={formData}
         setFormData={setFormData}
         onSubmit={onSubmit}
       />
       <div className="flex justify-center">
         <p className="text-center text-sm">
-          Don't have an account 
+          Don't have an account
           <Link
             to="/auth/register"
             className="font-medium text-primary hover:underline ml-1"

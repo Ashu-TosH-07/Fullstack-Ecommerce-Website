@@ -26,9 +26,9 @@ function AuthRegister() {
         navigate("/auth/login");
       } else {
         toast.error(data?.payload?.message || "An error occurred");
-      }     
+      }
     });
-  };  
+  };
 
   return (
     <div className="mx-auto w-full max-w-md space-y-6">

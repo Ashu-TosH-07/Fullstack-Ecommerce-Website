@@ -13,10 +13,8 @@ function PaypalReturnPage() {
 
   useEffect(() => {
     if (paymentId && payerId) {
-      const orderIdRaw = sessionStorage.getItem("currentOrderId");
-      const orderId =
-        orderIdRaw && orderIdRaw !== "undefined" ? JSON.parse(orderIdRaw) : null;
-  
+      const orderId = JSON.parse(sessionStorage.getItem("currentOrderId"));
+
       dispatch(capturePayment({ paymentId, payerId, orderId })).then((data) => {
         if (data?.payload?.success) {
           sessionStorage.removeItem("currentOrderId");

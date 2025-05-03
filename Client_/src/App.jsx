@@ -24,7 +24,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { checkAuth } from "./store/auth-slice";
 import { Skeleton } from "@/components/ui/skeleton";
 
-
 import Wishlist from "./paged/shoping-view/wishlist"; // wishlist page
 import SearchProducts from "./paged/shoping-view/search";
 
@@ -35,9 +34,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const tokenRaw = sessionStorage.getItem("token");
-    const token = tokenRaw && tokenRaw !== "undefined" ? JSON.parse(tokenRaw) : null;
-    dispatch(checkAuth(token));
+    dispatch(checkAuth());
   }, [dispatch]);
 
   if (isLoading) {
@@ -46,15 +43,9 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Routes>
-      <Route
-          path="/"
-          element={
-            <CheckAuth
-              isAuthenticated={isAuthenticated}
-              user={user}
-            ></CheckAuth>
-          }
-        />
+        <Route path="/" element={<ShopingLayout />}>
+          <Route path="/" element={<ShopingHome />} />
+        </Route>
         // Authentication pages
         <Route
           path="/auth"
@@ -99,7 +90,7 @@ function App() {
           //payment
           <Route path="paypal-return" element={<PaypalReturnPage />} />
           <Route path="payment-success" element={<PaymentSuccessPage />} />
-          <Route path="search" element={<SearchProducts/>} />
+          <Route path="search" element={<SearchProducts />} />
         </Route>
         // Unauthenticated page
         <Route path="unauthpage" element={<UnauthPage />} />

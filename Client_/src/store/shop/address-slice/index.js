@@ -1,4 +1,3 @@
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -29,7 +28,9 @@ export const editaAddress = createAsyncThunk(
   "/addresses/editaAddress",
   async ({ userId, addressId, formData }) => {
     const response = await axios.put(
-      `${import.meta.env.VITE_API_URL}/api/shop/address/update/${userId}/${addressId}`,
+      `${
+        import.meta.env.VITE_API_URL
+      }/api/shop/address/update/${userId}/${addressId}`,
       formData
     );
 
@@ -41,7 +42,9 @@ export const deleteAddress = createAsyncThunk(
   "/addresses/deleteAddress",
   async ({ userId, addressId }) => {
     const response = await axios.delete(
-      `${import.meta.env.VITE_API_URL}/api/shop/address/delete/${userId}/${addressId}`
+      `${
+        import.meta.env.VITE_API_URL
+      }/api/shop/address/delete/${userId}/${addressId}`
     );
 
     return response.data;

@@ -8,7 +8,7 @@ import ShoppingAddressSlice from "./shop/address-slice";
 import ShoppingOrderSlice from "./shop/order-slice";
 import ProductSearchSlice from "./shop/search-slice";
 import ProductReviewSlice from "./shop/review-slice";
-import CommonFeatureSlice from "./common-slice"; 
+import CommonFeatureSlice from "./common-slice";
 
 // import WishlistSlice from "./shop/wishlist-slice"; // Uncomment if you have a wishlist slice
 
@@ -23,7 +23,7 @@ const store = configureStore({
     shoppingOrder: ShoppingOrderSlice,
     productSearch: ProductSearchSlice,
     productReview: ProductReviewSlice,
-    commonFeature: CommonFeatureSlice, 
+    commonFeature: CommonFeatureSlice,
     // wishlist: WishlistSlice, // Add the wishlist slice here
   },
 });

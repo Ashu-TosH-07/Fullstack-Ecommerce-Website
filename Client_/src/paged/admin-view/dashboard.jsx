@@ -20,9 +20,7 @@ function AdminDashboard() {
         dispatch(getFeatureImages());
         setImageFile(null);
         setUploadedImageUrl("");
-        toast.success(
-          "Feature image uploaded successfully!"
-        );
+        toast.success("Feature image uploaded successfully!");
       }
     });
   }

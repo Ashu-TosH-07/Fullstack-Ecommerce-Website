@@ -45,7 +45,6 @@ function ShopingListing() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
   const { user } = useSelector((state) => state.auth);
-  
 
   // useEffect(() => {
   //   const savedFilters = JSON.parse(sessionStorage.getItem("filters"));
@@ -64,16 +63,17 @@ function ShopingListing() {
   // }, [dispatch]);
 
   useEffect(() => {
+    const savedSort = sessionStorage.getItem("sort") || "price-lowtohigh";
+    setSort(savedSort);
+
     const category = searchParams.get("category");
-    const filtersRaw = sessionStorage.getItem("filters");
-    const parsedFilters =
-      filtersRaw && filtersRaw !== "undefined" ? JSON.parse(filtersRaw) : null;
-  
     const filterObj =
-      category !== null ? { Category: [category] } : parsedFilters || {};
-  
+      category !== null
+        ? { Category: [category] }
+        : JSON.parse(sessionStorage.getItem("filters")) || {};
+
     setFilters(filterObj);
-  
+
     dispatch(
       fetchFilteredProduct({
         filterParams: filterObj,

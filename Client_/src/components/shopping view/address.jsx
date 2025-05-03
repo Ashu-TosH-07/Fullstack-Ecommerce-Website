@@ -22,8 +22,7 @@ const initialAddressFormData = {
   alternativeAddress: "",
 };
 
-
-function Address({setCurrentSelectedAddress, selectedId}) {
+function Address({ setCurrentSelectedAddress, selectedId }) {
   const [formData, setFormData] = useState(initialAddressFormData);
   const [currentEditedId, setCurrentEditedId] = useState(null);
   const dispatch = useDispatch();
@@ -133,7 +132,7 @@ function Address({setCurrentSelectedAddress, selectedId}) {
         )}
       </div>
       <CardHeader>
-        <CardTitle className='font-bold text-xl'>
+        <CardTitle className="font-bold text-xl">
           {currentEditedId !== null ? "Edit Address" : "Add New Address"}
         </CardTitle>
       </CardHeader>
