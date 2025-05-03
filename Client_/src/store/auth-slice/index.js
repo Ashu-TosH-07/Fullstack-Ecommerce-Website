@@ -69,7 +69,7 @@ export const checkAuth = createAsyncThunk("/auth/checkauth", async (token) => {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
         "Cache-Control":
           "no-store, no-cache, must-revalidate, proxy-revalidate",
       },
