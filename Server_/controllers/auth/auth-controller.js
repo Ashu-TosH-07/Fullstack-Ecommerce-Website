@@ -25,13 +25,13 @@ const registerUser = async (req, res) => {
     await newUser.save();
     res.status(200).json({
       success: true,
-      message: "Registration Successful",
+      message: "Registration Successful :)",
     });
   } catch (error) {
     console.log(error);
     res.status(500).json({
       success: false,
-      message: "Some error occured",
+      message: "Some error occured !",
     });
   }
 };
@@ -81,7 +81,7 @@ const loginUser = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: "Logged in Successfully :).",
+      message: "Logged in Successfully :)",
       token,
       user: {
         email: checkUser.email,
