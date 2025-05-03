@@ -71,7 +71,7 @@ function ShopingListing() {
     const filterObj =
       category !== null
         ? { Category: [category] }
-        : JSON.parse(sessionStorage.getItem("filters")) || {};
+        : JSON.parse(sessionStorage.getItem("filters") || "null") || {};
 
     setFilters(filterObj);
 

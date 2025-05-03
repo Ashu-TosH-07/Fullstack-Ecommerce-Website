@@ -121,7 +121,7 @@ const authSlice = createSlice({
         state.user = null;
         state.isAuthenticated = false;
         state.token = null;
-        // sessionStorage.removeItem('token');
+        sessionStorage.removeItem('token');
       })
       .addCase(checkAuth.pending, (state) => {
         state.isLoading = true;
