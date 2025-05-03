@@ -7,7 +7,13 @@ import {
 import { GoHomeFill } from "react-icons/go";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
-import { CircleUserRound, LogOut, Menu, Search, ShoppingCart } from "lucide-react";
+import {
+  CircleUserRound,
+  LogOut,
+  Menu,
+  Search,
+  ShoppingCart,
+} from "lucide-react";
 import { GiHearts } from "react-icons/gi";
 import { useDispatch, useSelector } from "react-redux";
 import { shoppingHeaderMenuItem } from "@/config";
@@ -20,7 +26,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { logoutUser } from "@/store/auth-slice";
+import { logoutUser, reserTokenAndCredentials } from "@/store/auth-slice";
 import UserCartWrapper from "./cart-wrapper";
 import { useEffect, useState } from "react";
 import { fetchCartItem } from "@/store/shop/cart-slice";
@@ -76,7 +82,10 @@ function HeaderRightContent() {
   const [openCartSheet, setOpenCartSheet] = useState(false);
 
   function handleLogout() {
-    dispatch(logoutUser());
+    // dispatch(logoutUser());
+    dispatch(reserTokenAndCredentials());
+    sessionStorage.clear();
+    navigate("/auth/login");
   }
 
   useEffect(() => {
@@ -86,8 +95,8 @@ function HeaderRightContent() {
   return (
     <div className="flex items-center gap-4">
       <Link to="/shop/search" size="icon" className="cursor-pointer">
-      <Search />
-        </Link>
+        <Search />
+      </Link>
       <Sheet open={openCartSheet} onOpenChange={() => setOpenCartSheet(false)}>
         <Button
           onClick={() => setOpenCartSheet(true)}
@@ -136,7 +145,7 @@ function HeaderRightContent() {
           <DropdownMenuItem onClick={() => navigate("/shop/wishlist")}>
             <GiHearts className="m-2 w-6 h-6" />
             Wishlists
-          </DropdownMenuItem> 
+          </DropdownMenuItem>
           <DropdownMenuItem onClick={handleLogout}>
             <LogOut className="m-2 w-6 h-6" />
             Logout
