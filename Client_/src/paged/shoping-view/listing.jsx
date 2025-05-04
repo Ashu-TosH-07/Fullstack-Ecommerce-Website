@@ -15,7 +15,6 @@ import {
   fetchFilteredProduct,
   fetchProductDetails,
 } from "@/store/shop/product-slice";
-// import { console } from "inspector";
 import { ArrowUpDownIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -199,7 +198,7 @@ function ShopingListing() {
             </DropdownMenu>
           </div>
         </div>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4">
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 ">
           {productList && productList.length > 0 ? (
             productList.map((productItem) => (
               <ShoppingProductTile
@@ -210,7 +209,9 @@ function ShopingListing() {
               />
             ))
           ) : (
-            <h2>No products available.</h2>
+            <h2 className="text-xl font-semibold">
+              Sorry No Product Available right now.
+            </h2>
           )}
         </div>
       </div>
