@@ -26,5 +26,4 @@ const CartSchema = new mongooese.Schema(
   }
 );
 
-
 module.exports = mongooese.model("Cart", CartSchema);
