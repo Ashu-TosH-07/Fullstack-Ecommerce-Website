@@ -36,10 +36,10 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="/size-guide"
+                href="/customer-support"
                 className="hover:text-white hover:underline"
               >
-                Size Guide
+                Customer Support
               </a>
             </li>
           </ul>
@@ -120,9 +120,9 @@ export default function Footer() {
             </a>
           </div>
           <p className="text-sm text-gray-400">
-            Email: support@yourstore.com
+            Email: support@x-plore.com
             <br />
-            Phone: +1 (555) 123-4567
+            Phone: +1 (999) 123-4567
           </p>
         </div>
       </div>

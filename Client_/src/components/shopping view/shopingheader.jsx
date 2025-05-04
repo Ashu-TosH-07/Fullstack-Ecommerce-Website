@@ -175,7 +175,7 @@ function ShopingHeader() {
           </Sheet>
           <Link to="/shop/home" className="flex items-center gap-2">
             <GoHomeFill className="h-6 w-6" />
-            <span className="font-bold text-lg"> X- PLORE</span>
+            <span className="font-bold tracking-normal text-xl"> X-PLoRE</span>
             {/* <img src={logoImg} alt="Logo" className="w-[120px] h-[60px]"/> */}
           </Link>
           <HeaderRightContent />
@@ -185,7 +185,7 @@ function ShopingHeader() {
         <div className="hidden lg:flex justify-between items-center w-full">
           <Link to="/shop/home" className="flex items-center gap-2 ">
             <GoHomeFill className="h-6 w-6" />
-            <span className="font-bold text-lg"> X- PLORE</span>
+            <span className="font-bold tracking-normal text-xl"> X-PLoRE</span>
           </Link>
           <MenuItems />
           <HeaderRightContent />

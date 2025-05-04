@@ -34,12 +34,22 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const token = JSON.parse(sessionStorage.getItem('token'))
+    const token = JSON.parse(sessionStorage.getItem("token"));
     dispatch(checkAuth(token));
   }, [dispatch]);
 
   if (isLoading) {
-    return <Skeleton className="w-full h-screen bg-black" />;
+    return (
+      <Skeleton className="w-full h-screen bg-black relative ">
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <p className="text-cyan-400 font-extrabold text-xl tracking-normal">X-PLoRE</p>
+          <p className="text-sm text-white">Something new..</p>
+        </div>
+        <p className="text-sm text-muted-foreground fixed bottom-4 inset-x-0 flex justify-center ">
+          Loading...
+        </p>
+      </Skeleton>
+    );
   }
   return (
     <div className="flex flex-col min-h-screen bg-white">
